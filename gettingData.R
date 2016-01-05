@@ -6,11 +6,11 @@ library(data.table)
 xml_parse <- function(query, max.hits) {
   # querying the database to retrieve a list of unique ID's for each hit
   # n_terms indicates maximum number of hits returned by the search
-  res <- entrez_search(db="nuccore", term=query, retmax = max.hits)
+  Tt <- entrez_search(db="nuccore", term=query, retmax = max.hits)
   if (length(Tt$ids) == 0) {
     stop("No items were found, Please try again")
   }
-  res
+  Tt
 } 
 
 read.seq <- function (idx) {
