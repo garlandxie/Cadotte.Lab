@@ -15,7 +15,7 @@ xml_parse <- function(query, max.hits) {
 
 read.seq <- function (idx) {
 
-  xml_doc <- entrez_fetch(db="nuccore", id=Tt$ids, rettype="xml", parsed=T)
+  tr <- entrez_fetch(db="nuccore", id=Tt$ids, rettype="xml", parsed=T)
   tr1 <- getNodeSet(tr, paste0("//Seq-entry[Seq-entry_seq/Bioseq/Bioseq_id/Seq-id=",idx,"]"), fun=xmlClone)
   
   ls_acc <- xpathApply(tr1[[1]], "//Textseq-id_accession", xmlValue)[[1]]
